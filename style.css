@@ -1,0 +1,30 @@
+span.illwikishorthand_paths, span.illwikishorthand_scales {
+	white-space:nowrap;
+}
+span.illwikishorthand_path_tooltip {
+	display:none;
+	font-size:80%;
+	position:absolute;
+	/*background-color:rgba(255,0,0,0.2);*/
+	background-color:@ini_background;
+	border:1px solid @ini_border;
+	border-radius:5px;
+	padding:2px 4px;
+}
+span.illwikishorthand_path_summary {
+	display:inline;
+}
+span.illwikishorthand_path_random {
+}
+span.illwikishorthand_path_random:hover span.illwikishorthand_path_tooltip {
+	display:inline;
+}
+span.illwikishorthand_path_random:hover span.illwikishorthand_path_summary {
+	/*display:none;*/
+}
+
+
+span.illwikishorthand_gems img {
+	height:15px;
+	margin:0;
+}

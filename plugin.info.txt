@@ -1,0 +1,7 @@
+base   illwikishorthand
+author Tim
+email  tim@gurka.se
+date   2020-01-31
+name   illwikishorthand plugin
+desc   desc
+url    https://illwiki.com/
