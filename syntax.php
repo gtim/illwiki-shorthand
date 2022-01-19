@@ -113,7 +113,7 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
             return false;
         }
 
-	$abbrv = array('F'=>'fire','A'=>'air','W'=>'water','E'=>'earth','D'=>'death','S'=>'astral','N'=>'nature','B'=>'blood','H'=>'holy');
+	$abbrv = array('F'=>'fire','A'=>'air','W'=>'water','E'=>'earth','D'=>'death','S'=>'astral','N'=>'nature','B'=>'blood','H'=>'holy','R'=>'rp');
 	if ( $data[0] == 'img' ) {
 		$renderer->internalmedia(
 			$data[1],
@@ -165,9 +165,9 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
 		$random_tooltip_strs = array();
 		$path_parts = explode(',', $data[1] );
 		foreach ( $path_parts as $path_part ) {
-			if ( preg_match( '/^(?:[FAWEDSNBH]\\d+)+$/', $path_part, $m ) ) {
+			if ( preg_match( '/^(?:[FAWEDSNBHR]\\d+)+$/', $path_part, $m ) ) {
 				// Base path
-				preg_match_all( '/([FAWEDSNBH])(\d+)/', $path_part, $m );
+				preg_match_all( '/([FAWEDSNBHR])(\d+)/', $path_part, $m );
 				for ( $i = 0; $i < count($m[0]); $i++ ) {
 					$path = $m[1][$i];
 					$level = $m[2][$i];
