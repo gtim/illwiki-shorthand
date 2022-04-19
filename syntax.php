@@ -199,7 +199,7 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
 			$renderer->doc .= '<span class="illwikishorthand_path_summary">';
 			$renderer->doc .= round($random_tot/100);
 			$renderer->doc .= "</span>";
-			$renderer->doc .= sprintf( '<span class="illwikishorthand_path_tooltip">%s</span>', implode('+', $random_tooltip_strs ) );
+			$renderer->doc .= sprintf( '<span class="illwikishorthand_path_tooltip">%s</span>', implode('<br/>', $random_tooltip_strs ) );
 			$renderer->doc .= "</span>";
 		}
 		$renderer->doc .= "</span>";
