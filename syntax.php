@@ -130,8 +130,32 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
 			$renderer->doc .= $level;
 		}
 		# scales
-		$scales_abbrv = array('O'=>'order','T'=>'turmoil','P'=>'productivity','S'=>'sloth','H'=>'heat','C'=>'cold','G'=>'growth','L'=>'luck','M'=>'magic','D'=>'drain');
-		preg_match_all( '/([A-Za-z])([0-3])/', $data[1], $m );
+		$scales_abbrv = array(
+			'O'=>'order',
+			'OR'=>'order',
+			'T'=>'turmoil',
+			'TU'=>'turmoil',
+			'P'=>'productivity',
+			'PR'=>'productivity',
+			'S'=>'sloth',
+			'SL'=>'sloth',
+			'H'=>'heat',
+			'HE'=>'heat',
+			'C'=>'cold',
+			'CO'=>'cold',
+			'G'=>'growth',
+			'GR'=>'growth',
+			'L'=>'luck',
+			'LU'=>'luck',
+			'M'=>'magic', # ambiguous; somewhat disambiguated by position
+			'MA'=>'magic',
+			'MF'=>'misfortune',
+			'MI'=>'misfortune',
+			'D'=>'drain', # ambiguous; somewhat disambiguated by position
+			'DR'=>'drain',
+			'DE'=>'death'
+		);
+		preg_match_all( '/([A-Za-z]{1,2})([0-3])/', $data[1], $m );
 		for ( $i = 0; $i < count($m[0]); $i++ ) {
 			$scale = strtoupper( $m[1][$i] );
 			$level = $m[2][$i];
