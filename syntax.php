@@ -113,7 +113,7 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
             return false;
         }
 
-	$abbrv = array('F'=>'fire','A'=>'air','W'=>'water','E'=>'earth','D'=>'death','S'=>'astral','N'=>'nature','B'=>'blood','H'=>'holy','R'=>'rp');
+	$abbrv = array('F'=>'fire','A'=>'air','W'=>'water','E'=>'earth','D'=>'death','S'=>'astral','N'=>'nature','G'=>'glamour','B'=>'blood','H'=>'holy','R'=>'rp');
 	if ( $data[0] == 'img' ) {
 		$renderer->internalmedia(
 			$data[1],
@@ -228,8 +228,8 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
 		}
 		$renderer->doc .= "</span>";
 	} elseif ( $data[0] == 'gems' ) {
-		$gem_abbrv = array('F'=>'firegem','A'=>'airgem','W'=>'watergem','E'=>'earthgem','D'=>'deathgem','S'=>'astralpearl','N'=>'naturegem','B'=>'bloodslave');
-		preg_match_all( '/(\\d*(?:\\.\\d+)?)([FAWEDSNB])/', $data[1], $m );
+		$gem_abbrv = array('F'=>'firegem','A'=>'airgem','W'=>'watergem','E'=>'earthgem','D'=>'deathgem','S'=>'astralpearl','N'=>'naturegem','G'=>'glamourgem','B'=>'bloodslave');
+		preg_match_all( '/(\\d*(?:\\.\\d+)?)([FAWEDSNGB])/', $data[1], $m );
 		$renderer->doc .= '<span class="illwikishorthand_gems">';
 		for ( $i = 0; $i < count($m[0]); $i++ ) {
 			$num = $m[1][$i];
