@@ -63,7 +63,7 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
     public function connectTo($mode)
     {
         $this->Lexer->addSpecialPattern('{{path>.+?}}', $mode, 'plugin_illwikishorthand');
-        $this->Lexer->addSpecialPattern('{{gems>(?:\\d*(?:\\.\\d+)?[FAWESNDB])+}}', $mode, 'plugin_illwikishorthand');
+        $this->Lexer->addSpecialPattern('{{gems>(?:\\d*(?:\\.\\d+)?[FAWESNDGB])+}}', $mode, 'plugin_illwikishorthand');
         $this->Lexer->addSpecialPattern('{{scales>(?:[a-zA-Z0-9])+}}', $mode, 'plugin_illwikishorthand');
 	$img_regex = implode('|',array_keys(self::$shorthand_img));
         $this->Lexer->addSpecialPattern($img_regex, $mode, 'plugin_illwikishorthand');
@@ -189,9 +189,9 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
 		$random_tooltip_strs = array();
 		$path_parts = explode(',', $data[1] );
 		foreach ( $path_parts as $path_part ) {
-			if ( preg_match( '/^(?:[FAWEDSNBHR]\\d+)+$/', $path_part, $m ) ) {
+			if ( preg_match( '/^(?:[FAWEDSNGBHR]\\d+)+$/', $path_part, $m ) ) {
 				// Base path
-				preg_match_all( '/([FAWEDSNBHR])(\d+)/', $path_part, $m );
+				preg_match_all( '/([FAWEDSNGBHR])(\d+)/', $path_part, $m );
 				for ( $i = 0; $i < count($m[0]); $i++ ) {
 					$path = $m[1][$i];
 					$level = $m[2][$i];
@@ -202,7 +202,7 @@ class syntax_plugin_illwikishorthand extends DokuWiki_Syntax_Plugin
 					);
 					$renderer->doc .= $level;
 				}
-			} elseif ( preg_match( '/^(\\d+)%([FAWEDSNBH]+)$/', $path_part, $m ) ) {
+			} elseif ( preg_match( '/^(\\d+)%([FAWEDSNGBH]+)$/', $path_part, $m ) ) {
 				// Random path
 				$chance = $m[1];
 				$paths = str_split($m[2]);
